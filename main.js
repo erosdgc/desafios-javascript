@@ -2,28 +2,16 @@
 let nombre = prompt("Ingresá tu nombre:");
 let apellido = prompt("Ingresá tu apellido:");
 
-
 // Si no define una entrada en alguno de las dos, se pide que se reingresen los datos.
-while ((nombre == undefined) || (apellido == undefined)) { 
-    nombre = prompt("Por favor, ingresá tu nombre:")
-    apellido = prompt("Por favor, ingresá tu apellido:")
-}
 
 
-// Si el nombre ni el apellido están en blanco, aparece un saludo.
-if ((nombre !="") && (apellido !="")) {
+// Si el nombre ni el apellido están en blanco o se omite cancelando la opción, aparece un saludo.
+if ((nombre !== "" || nombre !== undefined) && (apellido !== "" || apellido !== undefined)) {
     alert("¡Hola, " + nombre + " " + apellido + "!");
 }
 else {
-    alert("No ingresaste los datos solicitados.");
-    nombre = prompt("Ingresá tu nombre:");
-    apellido = prompt("Ingresá tu apellido:");
-}
-
-
-// Saludo reactivado
-if ((nombre !="") && (apellido !="")) {
-    alert("¡Hola, " + nombre + " " + apellido + "!");
+    nombre = prompt("Por favor, ingresá tu nombre:");
+    apellido = prompt("Por favor, ingresá tu apellido:");
 }
 
 
@@ -38,13 +26,20 @@ let cuadradoY = parseFloat(numeroDos)*parseFloat(numeroDos)
 let cuboX = parseFloat(numeroUno)*parseFloat(numeroUno)*parseFloat(numeroUno)
 let cuboY = parseFloat(numeroDos)*parseFloat(numeroDos)*parseFloat(numeroDos)
 
-while ((numeroUno <= 100) && (numeroDos <= 100)) {
-    alert(`La suma de estos es: ${suma}, la multiplicación es: ${multiplicacion}, el cuadrado del primero es ${cuadradoX}, el cuadrado del segundo es ${cuadradoY}, el cubo del primero es ${cuboX} y por último, el cubo del segundo es ${cuboY}`);
-}
-
-while ((numeroUno >= 100) && (numeroDos >= 100)) {
+while (numeroUno >= 100 && numeroDos >= 100) {
     numeroUno = prompt("Error: ingresar un número X menor que 100.");
     numeroUno = prompt("Error: ingresar un número Y menor que 100.");
+}
+
+if (numeroUno != undefined && numeroDos != undefined) {
+    alert(`La suma de estos es: ${suma}, la multiplicación es: ${multiplicacion}, el cuadrado del primero es ${cuadradoX}, el cuadrado del segundo es ${cuadradoY}, el cubo del primero es ${cuboX} y por último, el cubo del segundo es ${cuboY}`);
+}
+else {
+    numeroUno = prompt("Error: tenés que ingresar un número X menor que 100.");
+    numeroUno = prompt("Error: tenés que ingresar un número Y menor que 100.");
+}
+if (numeroUno != undefined && numeroDos != undefined) {
+    alert(`La suma de estos es: ${suma}, la multiplicación es: ${multiplicacion}, el cuadrado del primero es ${cuadradoX}, el cuadrado del segundo es ${cuadradoY}, el cubo del primero es ${cuboX} y por último, el cubo del segundo es ${cuboY}`);
 }
 
 
